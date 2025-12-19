@@ -164,7 +164,11 @@ const LoginForm = ({ onLogin, isLoading }) => {
           onClick={() => setShowPassword(!showPassword)}
           className="absolute right-3 top-9 text-muted-foreground hover:text-foreground transition-smooth"
         >
-          <Icon name={showPassword ? 'EyeOff' : 'Eye'} size={16} />
+          <Icon
+            name={showPassword ? 'EyeOff' : 'Eye'}
+            size={16}
+            className="text-current"
+          />
         </button>
       </div>
 
