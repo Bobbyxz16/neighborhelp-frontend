@@ -19,7 +19,7 @@ import VerifyEmail from './pages/verify-email';
 import FAQPage from './pages/user-dashboard/sub-pages/Faq';
 import ContactSupportPage from './pages/user-dashboard/sub-pages/Contact-support';
 import UserGuidePage from './pages/user-dashboard/sub-pages/User-guide';
-import EmergencyResourcesPage from './pages/user-dashboard/sub-pages/emergency-page';
+import EmergencyResourcesPage from './pages/user-dashboard/sub-pages/Emergency-page'; 
 import TermsAndConditionsPage from './pages/terms-and-conditions';
 import ProfileSettings from './pages/user-dashboard/sub-pages/ProfileSettings';
 import MessagesPage from './pages/user-dashboard/sub-pages/MessagesPage';
