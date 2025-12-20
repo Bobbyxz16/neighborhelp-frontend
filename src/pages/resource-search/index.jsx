@@ -402,19 +402,19 @@ const ResourceSearch = () => {
       <Header user={user} onLogout={handleLogout} />
 
       <main className="pt-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8">
           {/* Page Header */}
-          <div className="mb-8">
-            <h1 className="text-3xl font-bold text-foreground mb-2">
+          <div className="mb-6 sm:mb-8">
+            <h1 className="text-2xl sm:text-3xl font-bold text-foreground mb-2">
               {savedOnly ? 'Saved Resources' : 'Find Community Resources'}
             </h1>
-            <p className="text-muted-foreground">
+            <p className="text-sm sm:text-base text-muted-foreground">
               Discover local aid services, support organizations, and community resources in your area.
             </p>
           </div>
 
           {/* Search Section */}
-          <div className="mb-8">
+          <div className="mb-6 sm:mb-8">
             <SearchBar
               ref={searchInputRef}
               searchQuery={searchQuery}
@@ -424,7 +424,7 @@ const ResourceSearch = () => {
             />
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 sm:gap-8">
             {/* Filters Sidebar */}
             <div className="lg:col-span-1">
               <SearchFilters

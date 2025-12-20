@@ -142,7 +142,7 @@ const Header = ({ user = null, onLogout = () => { } }) => {
                 </div>
               </div>
             ) : (
-              <div className="flex items-center space-x-2">
+              <div className="hidden md:flex items-center space-x-2">
                 <Button
                   variant="ghost"
                   size="sm"

@@ -78,17 +78,17 @@ const SearchBar = forwardRef(({ searchQuery, onSearchChange, onSearch, onLocatio
     }
   };
 
-  
+
 
   return (
-    <div className="bg-card border border-border rounded-lg shadow-elevation-1 p-6">
-      <form onSubmit={handleSubmit} className="space-y-4">
+    <div className="bg-card border border-border rounded-lg shadow-elevation-1 p-4 sm:p-6">
+      <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
         {/* Search Input */}
         <div className="relative">
           <Input
             ref={ref}
             type="search"
-            placeholder="Search for resources, services, or organizations..."
+            placeholder="Search for resources, services..."
             value={searchQuery}
             onChange={(e) => onSearchChange(e?.target?.value)}
             className="pr-12"
@@ -98,12 +98,12 @@ const SearchBar = forwardRef(({ searchQuery, onSearchChange, onSearch, onLocatio
           </div>
         </div>
 
-        {/* Location Input */}
-        <div className="flex space-x-2">
+        {/* Location Input - stacked on mobile */}
+        <div className="flex flex-col sm:flex-row gap-2 sm:space-x-2 sm:gap-0">
           <div className="flex-1 relative">
             <Input
               type="text"
-              placeholder="Enter your location or zip code"
+              placeholder="Location or zip code"
               value={location}
               onChange={(e) => setLocation(e?.target?.value)}
               className="pr-12"
@@ -119,9 +119,11 @@ const SearchBar = forwardRef(({ searchQuery, onSearchChange, onSearch, onLocatio
             loading={isDetectingLocation}
             iconName="Crosshair"
             iconSize={16}
-            className="px-4"
+            className="px-4 w-full sm:w-auto"
             disabled={isDetectingLocation}
-          />
+          >
+            <span className="sm:hidden ml-2">Detect Location</span>
+          </Button>
         </div>
 
         {/* Search Button */}
@@ -138,7 +140,7 @@ const SearchBar = forwardRef(({ searchQuery, onSearchChange, onSearch, onLocatio
         </Button>
       </form>
 
-    
+
     </div>
   );
 });
