@@ -10,7 +10,7 @@
 /**
  * Base API URL - reads from environment variable
  */
-export const API_BASE_URL = import.meta.env.REACT_APP_API_URL || 'http://localhost:8080/api';
+export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://api.neighbourlyunion.com/api';
 
 /**
  * API Endpoints
@@ -155,7 +155,7 @@ export const PAGINATION = {
     DEFAULT_SIZE: 50,
     DEFAULT_SORT: 'createdAt',
     DEFAULT_DIRECTION: 'desc',
-    PAGE_SIZE_OPTIONS: [10, 20, 50, 100,200],
+    PAGE_SIZE_OPTIONS: [10, 20, 50, 100, 200],
 };
 
 /**
@@ -265,10 +265,10 @@ export const RESOURCE_COST_LABELS = {
  */
 export const DEFAULT_CATEGORIES = [
     'Food', 'Housing', 'Education', 'Healthcare', 'Employment',
-            'Legal', 'Transportation', 'Clothing', 'Mental Health',
-            'Childcare', 'Senior Services', 'Animal Welfare',
-            'Environment', 'Arts & Culture', 'Sports', 'Disability',
-            'Refugee Support', 'Veteran Services', 'Addiction Recovery',
+    'Legal', 'Transportation', 'Clothing', 'Mental Health',
+    'Childcare', 'Senior Services', 'Animal Welfare',
+    'Environment', 'Arts & Culture', 'Sports', 'Disability',
+    'Refugee Support', 'Veteran Services', 'Addiction Recovery',
 ];
 
 // ==================== FILE UPLOAD ====================

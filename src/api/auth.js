@@ -13,7 +13,7 @@ export const useAuth = () => {
 
 // ==================== API UTILITIES ====================
 
-const API_BASE = 'http://localhost:8080/api';
+const API_BASE = 'https://api.neighbourlyunion.com/api';
 
 export const api = {
   async request(endpoint, options = {}) {
@@ -103,11 +103,11 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const login = async (email, password) => {
-      const data = await api.login(email, password);
-      localStorage.setItem('accessToken', data.accessToken);
-      setUser({ name: data.user.name, email: data.user.email });
-      return data;
-    };
+    const data = await api.login(email, password);
+    localStorage.setItem('accessToken', data.accessToken);
+    setUser({ name: data.user.name, email: data.user.email });
+    return data;
+  };
 
   const logout = () => {
     localStorage.removeItem('accessToken');
