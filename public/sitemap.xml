@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <sitemap>
-    <loc>https://api.neighborlyunion.com/api/sitemap.xml</loc>
-  </sitemap>
-</sitemapindex>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Static Pages -->
+  <url>
+    <loc>https://neighborlyunion.com/</loc>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://neighborlyunion.com/resources</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://neighborlyunion.com/login</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://neighborlyunion.com/register</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://neighborlyunion.com/about</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+</urlset>
+<!-- Note: Dynamic resources are handled by the backend sitemap at https://api.neighborlyunion.com/api/sitemap.xml 
+     Ideally, you would submit BOTH sitemaps to Google Search Console. 
+     Since we can't easily mix sitemapindex and urlset in one file without being a root index, 
+     we are providing this STATIC sitemap for immediate indexing. 
+     
+     The Backend should host its own sitemap.xml. You should submit:
+     1. https://neighborlyunion.com/sitemap.xml (This file)
+     2. https://api.neighborlyunion.com/api/sitemap.xml (Backend dynamic content)
+-->
