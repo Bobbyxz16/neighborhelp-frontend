@@ -13,7 +13,7 @@ export const useAuth = () => {
 
 // ==================== API UTILITIES ====================
 
-const API_BASE = 'https://api.neighbourlyunion.com/api';
+const API_BASE = 'https://api.neighborlyunion.com/api';
 
 export const api = {
   async request(endpoint, options = {}) {
