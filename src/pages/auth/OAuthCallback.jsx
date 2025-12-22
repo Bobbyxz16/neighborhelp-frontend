@@ -35,7 +35,7 @@ const OAuthCallback = () => {
 
                 // Decode the token to get user info
                 const decodedToken = jwtDecode(token);
-                
+
                 // Store user data from the token
                 localStorage.setItem(STORAGE_KEYS.USER, JSON.stringify(decodedToken));
 
@@ -55,9 +55,10 @@ const OAuthCallback = () => {
 
             } catch (err) {
                 console.error('OAuth callback error:', err);
+                console.log('Search Params:', searchParams.toString()); // Debugging
                 setError(err.message || 'Failed to complete authentication. Please try again.');
                 setIsProcessing(false);
-                setTimeout(() => navigate('/login'), 3000);
+                // setTimeout(() => navigate('/login'), 3000); // Disable auto-redirect for debugging
             }
         };
 
@@ -89,7 +90,15 @@ const OAuthCallback = () => {
                             Authentication Failed
                         </h2>
                         <p className="text-gray-600 mb-4">{error}</p>
-                        <p className="text-sm text-gray-500">Redirecting to login...</p>
+                        <div className="bg-gray-100 p-2 rounded text-xs text-left overflow-auto max-w-sm mx-auto mb-4">
+                            <code>Params: {searchParams.toString()}</code>
+                        </div>
+                        <button
+                            onClick={() => navigate('/login')}
+                            className="text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg text-sm transition-colors"
+                        >
+                            Return to Login
+                        </button>
                     </>
                 ) : null}
             </div>
