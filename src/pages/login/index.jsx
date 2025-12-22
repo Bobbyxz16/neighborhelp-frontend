@@ -8,6 +8,7 @@ import LoginHeader from './components/LoginHeader';
 import LoginBenefits from './components/LoginBenefits';
 import { API_ENDPOINTS, STORAGE_KEYS, SUCCESS_MESSAGES } from '../../utils/constants';
 import api from '../../api/axios';
+import SEO from '../../components/SEO/SEO';
 
 /**
  * Login Page - Dynamic with Spring Boot Backend
@@ -25,7 +26,7 @@ const LoginPage = () => {
 
     const handleLogin = async (credentials) => {
         setIsLoading(true);
-        
+
         try {
             const { data } = await api.post(API_ENDPOINTS.AUTH.LOGIN, {
                 email: credentials.email,
@@ -53,12 +54,12 @@ const LoginPage = () => {
             } else {
                 navigate('/user-dashboard');
             }
-            
+
             return userData;
-            
+
         } catch (error) {
             console.error('Login failed:', error);
-            
+
             if (error.response?.status === 403) {
                 throw new Error('Email not verified. Please check your email for verification code.');
             } else if (error.response?.status === 401) {
@@ -81,8 +82,13 @@ const LoginPage = () => {
 
     return (
         <div className="min-h-screen bg-background">
+            <SEO
+                title="Login to Access Community Resources | NeighborlyUnion"
+                description="Sign in to NeighborlyUnion to manage your community profile, access free resources, or offer help to neighbors in need."
+                url="https://neighborlyunion.com/login"
+            />
             <Header user={user} onLogout={handleLogout} />
-            
+
             <main className="pt-16">
                 <div className="container mx-auto px-4 py-8">
                     <div className="flex flex-col lg:flex-row items-center justify-center gap-8">
@@ -90,20 +96,20 @@ const LoginPage = () => {
                             <div className="text-center mb-6">
                                 <LoginHeader />
                             </div>
-                            
+
                             <div className="bg-card border border-border rounded-xl shadow-elevation-2 p-6">
-                                <LoginForm 
-                                    onLogin={handleLogin} 
-                                    isLoading={isLoading} 
+                                <LoginForm
+                                    onLogin={handleLogin}
+                                    isLoading={isLoading}
                                 />
-                                
+
                                 <div className="mt-4">
                                     {/* SocialLogin now handles OAuth internally */}
                                     <SocialLogin isLoading={isLoading} />
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div className="w-full lg:w-1/2 max-w-lg">
                             <div className="bg-gradient-to-br from-primary/5 to-secondary/5 border border-border rounded-xl shadow-elevation-1 p-6">
                                 <LoginBenefits />

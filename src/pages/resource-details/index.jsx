@@ -13,6 +13,7 @@ import ResourceSkeleton from './componets/ResourceSkeleton';
 import defaultResources from '../../utils/defaultResources';
 
 import { API_BASE_URL, API_ENDPOINTS } from '../../utils/constants';
+import SEO from '../../components/SEO/SEO';
 
 const ResourceDetails = ({ mode = 'view' }) => {
   const params = useParams();
@@ -370,6 +371,41 @@ const ResourceDetails = ({ mode = 'view' }) => {
 
   return (
     <div className="min-h-screen bg-background">
+      {resource && (
+        <SEO
+          title={`${resource.title} - ${resource.city} | NeighborlyUnion`}
+          description={resource.description ? resource.description.substring(0, 155) : 'Find community resources on NeighborlyUnion'}
+          keywords={`${resource.categoryName}, ${resource.city}, UK charity, free help, ${resource.title}`}
+          url={`https://neighborlyunion.com/resources/${resource.slug}`}
+          image={mainImage?.url || 'https://neighborlyunion.com/og-image.jpg'}
+          type="article"
+          structuredData={{
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": resource.title,
+            "description": resource.description,
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": resource.street,
+              "addressLocality": resource.city,
+              "postalCode": resource.postalCode,
+              "addressCountry": "GB"
+            },
+            "telephone": resource.phone,
+            "email": resource.email,
+            "url": resource.websiteUrl,
+            "image": normalizedImages.map(img => img.url),
+            "priceRange": resource.cost === 'FREE' ? 'Free' : (resource.cost === 'LOW_COST' ? '$' : '$$'),
+            ...(resource.averageRating > 0 && {
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": resource.averageRating,
+                "reviewCount": resource.reviewCount
+              }
+            })
+          }}
+        />
+      )}
       <Header user={user} onLogout={handleLogout} />
       <main className="pt-16">
         {/* Breadcrumb Navigation */}

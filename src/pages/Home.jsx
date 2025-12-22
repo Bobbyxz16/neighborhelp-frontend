@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Search, Heart, Users, MapPin, Sparkles, ArrowRight, CheckCircle, TrendingUp, LogIn, UserPlus } from 'lucide-react';
 import Footer from '../components/layout/Footer';
+import SEO from '../components/SEO/SEO';
 
 /**
  * Home Page - Landing page with hero section and features
@@ -79,6 +80,11 @@ const Home = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Find Free Community Resources in UK | NeighborlyUnion"
+        description="Search verified UK charities and community resources. Food banks, legal aid, housing support, mental health services. Free and local help near you."
+        url="https://neighborlyunion.com"
+      />
       {/* Hero Section with Search and Login */}
       <div className="relative bg-gradient-to-br from-blue-600 via-blue-700 to-purple-700 overflow-hidden">
         {/* Background Pattern */}

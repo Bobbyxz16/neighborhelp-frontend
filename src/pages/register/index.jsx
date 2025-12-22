@@ -10,6 +10,7 @@ import ProviderDetailsForm from './components/ProviderDetailsForm';
 import TermsAndAgreements from './components/TermsAndAgreements';
 import { API_ENDPOINTS, STORAGE_KEYS, SUCCESS_MESSAGES } from '../../utils/constants';
 import api from '../../api/axios';
+import SEO from '../../components/SEO/SEO';
 import logoImage from '../../assets/neighbourlyunion_Image-Photoroom.png';
 
 /**
@@ -224,7 +225,7 @@ const Register = () => {
         }
       });
 
-        } catch (error) {
+    } catch (error) {
       console.error('Registration failed:', error);
 
       // Handle specific error cases
@@ -246,15 +247,15 @@ const Register = () => {
           }, 100);
         }
       } else if (error.response?.status === 401) {
-      const message =
-        'Registration failed (401). This could be because the email already exists or another authentication issue. Please check your details or try a different email.';
+        const message =
+          'Registration failed (401). This could be because the email already exists or another authentication issue. Please check your details or try a different email.';
 
-      // Popup so the user can read it
-      window.alert(message);
+        // Popup so the user can read it
+        window.alert(message);
 
-      setErrors({
-        submit: message
-      });
+        setErrors({
+          submit: message
+        });
       } else if (error.response?.status === 400) {
         // Validation error
         setErrors({
@@ -315,6 +316,11 @@ const Register = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Join the Community | Register for NeighborlyUnion"
+        description="Create your free account on NeighborlyUnion to access or provide community resources. Connect with verified charities and local support services."
+        url="https://neighborlyunion.com/register"
+      />
       {/* Header */}
       <div className="bg-card border-b border-border">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
