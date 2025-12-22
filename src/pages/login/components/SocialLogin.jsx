@@ -17,7 +17,8 @@ const SocialLogin = ({ isLoading }) => {
 
     const handleSocialLogin = (provider) => {
         // Redirect to Spring Boot OAuth2 endpoint
-        const baseUrl = API_BASE_URL.replace('/api', ''); // Remove /api from base URL
+        // Remove /api if present at the end, handling optional trailing slash
+        const baseUrl = API_BASE_URL.replace(/\/api\/?$/, '');
         window.location.href = `${baseUrl}/oauth2/authorization/${provider}`;
     };
 
@@ -31,7 +32,7 @@ const SocialLogin = ({ isLoading }) => {
                     <span className="bg-card px-2 text-muted-foreground">Or continue with</span>
                 </div>
             </div>
-            
+
             <div className="grid grid-cols-1 gap-3">
                 {socialProviders.map((provider) => (
                     <button
@@ -52,12 +53,12 @@ const SocialLogin = ({ isLoading }) => {
                     </button>
                 ))}
             </div>
-            
+
             <div className="text-center">
                 <p className="text-xs text-muted-foreground">
                     By continuing, you agree to our{' '}
-                    <a 
-                        href="/terms" 
+                    <a
+                        href="/terms"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-primary hover:text-primary/80 transition-smooth underline"
@@ -65,8 +66,8 @@ const SocialLogin = ({ isLoading }) => {
                         Terms of Service
                     </a>
                     {' '}and{' '}
-                    <a 
-                        href="/privacy" 
+                    <a
+                        href="/privacy"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-primary hover:text-primary/80 transition-smooth underline"
