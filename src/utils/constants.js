@@ -11,6 +11,10 @@
  * Base API URL - reads from environment variable
  */
 export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://api.neighborlyunion.com/api';
+console.log('API_BASE_URL config:', {
+    env: import.meta.env.VITE_API_BASE_URL,
+    final: API_BASE_URL
+});
 
 /**
  * API Endpoints
